@@ -1,44 +1,30 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
-    int n, i;
-    int *arr;
-    int min, max;
+    char str[100];
+    char ch;
+    int i, found = 0;
 
-    printf("Enter size of array: ");
-    scanf("%d", &n);
+    printf("Enter a string: ");
+    scanf("%s", str);
 
-    // Dynamic memory allocation
-    arr = (int *)malloc(n * sizeof(int));
+    printf("Enter a character to search: ");
+    scanf(" %c", &ch);
 
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++)
+    for(i = 0; str[i] != '\0'; i++)
     {
-        scanf("%d", &arr[i]);
-    }
-
-    min = arr[0];
-    max = arr[0];
-
-    for(i = 1; i < n; i++)
-    {
-        if(arr[i] < min)
+        if(str[i] == ch)
         {
-            min = arr[i];
-        }
-
-        if(arr[i] > max)
-        {
-            max = arr[i];
+            printf("Character found at position %d\n", i + 1);
+            found = 1;
         }
     }
 
-    printf("Minimum = %d\n", min);
-    printf("Maximum = %d\n", max);
-
-    free(arr);
+    if(found == 0)
+    {
+        printf("Character not found");
+    }
 
     return 0;
 }

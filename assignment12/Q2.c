@@ -1,41 +1,22 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
-    int n, i, search, found = 0;
-    int *arr;
+    char str[100];
+    int i;
 
-    printf("Enter size of array: ");
-    scanf("%d", &n);
+    printf("Enter a string: ");
+    scanf("%s", str);
 
-    arr = (int *)malloc(n * sizeof(int));
-
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++)
+    for(i = 0; str[i] != '\0'; i++)
     {
-        scanf("%d", &arr[i]);
-    }
-
-    printf("Enter number to search: ");
-    scanf("%d", &search);
-
-    for(i = 0; i < n; i++)
-    {
-        if(arr[i] == search)
+        if(str[i] == 'a')
         {
-            printf("Number found at index %d\n", i);
-            found = 1;
-            break;
+            str[i] = '$';
         }
     }
 
-    if(found == 0)
-    {
-        printf("Number not found\n");
-    }
-
-    free(arr);
+    printf("Updated string: %s", str);
 
     return 0;
 }

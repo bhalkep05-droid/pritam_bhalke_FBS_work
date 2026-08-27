@@ -1,30 +1,23 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
-    int n, i;
-    int *arr;
+    char str[100];
+    int i, count = 0;
 
-    printf("Enter size of array: ");
-    scanf("%d", &n);
+    printf("Enter a string: ");
+    scanf("%s", str);
 
-    arr = (int *)malloc(n * sizeof(int));
-
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++)
+    for(i = 0; str[i] != '\0'; i++)
     {
-        scanf("%d", &arr[i]);
+        if(str[i] == 'a' || str[i] == 'e' || str[i] == 'i' ||
+           str[i] == 'o' || str[i] == 'u')
+        {
+            count++;
+        }
     }
 
-    printf("Alternate elements are:\n");
-
-    for(i = 0; i < n; i = i + 2)
-    {
-        printf("%d ", arr[i]);
-    }
-
-    free(arr);
+    printf("Number of vowels = %d", count);
 
     return 0;
 }

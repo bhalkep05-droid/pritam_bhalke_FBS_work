@@ -1,44 +1,25 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
-    int n, i;
-    int *arr, *brr, *crr;
+    char str[100];
+    int i, j = 0;
 
-    printf("Enter size of arrays: ");
-    scanf("%d", &n);
+    printf("Enter a string: ");
+    scanf("%s", str);
 
-    arr = (int *)malloc(n * sizeof(int));
-    brr = (int *)malloc(n * sizeof(int));
-    crr = (int *)malloc(n * sizeof(int));
-
-    printf("Enter elements of first array:\n");
-    for(i = 0; i < n; i++)
+    for(i = 0; str[i] != '\0'; i++)
     {
-        scanf("%d", &arr[i]);
+        if(i % 2 == 0)
+        {
+            str[j] = str[i];
+            j++;
+        }
     }
 
-    printf("Enter elements of second array:\n");
-    for(i = 0; i < n; i++)
-    {
-        scanf("%d", &brr[i]);
-    }
+    str[j] = '\0';
 
-    for(i = 0; i < n; i++)
-    {
-        crr[i] = arr[i] + brr[i];
-    }
-
-    printf("Third array is:\n");
-    for(i = 0; i < n; i++)
-    {
-        printf("%d ", crr[i]);
-    }
-
-    free(arr);
-    free(brr);
-    free(crr);
+    printf("String after removing odd index characters: %s", str);
 
     return 0;
 }

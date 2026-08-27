@@ -1,30 +1,22 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
-    int n, i, sum = 0;
-    int *arr;
+    char str[100];
+    int n, i;
 
-    printf("Enter size of array: ");
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    printf("Enter index to remove: ");
     scanf("%d", &n);
 
-    arr = (int *)malloc(n * sizeof(int));
-
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++)
+    for(i = n; str[i] != '\0'; i++)
     {
-        scanf("%d", &arr[i]);
+        str[i] = str[i + 1];
     }
 
-    for(i = 0; i < n; i++)
-    {
-        sum = sum + arr[i];
-    }
-
-    printf("Sum = %d", sum);
-
-    free(arr);
+    printf("String after removing character: %s", str);
 
     return 0;
 }

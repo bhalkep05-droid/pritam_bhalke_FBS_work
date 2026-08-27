@@ -1,30 +1,40 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
-    int n, i;
-    int *arr;
+    char str1[100], str2[100];
+    int i, len1 = 0, len2 = 0;
 
-    printf("Enter size of array: ");
-    scanf("%d", &n);
+    printf("Enter first string: ");
+    scanf("%s", str1);
 
-    arr = (int *)malloc(n * sizeof(int));
+    printf("Enter second string: ");
+    scanf("%s", str2);
 
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++)
+    // Find length of first string
+    for(i = 0; str1[i] != '\0'; i++)
     {
-        scanf("%d", &arr[i]);
+        len1++;
     }
 
-    printf("Reverse array is:\n");
-
-    for(i = n - 1; i >= 0; i--)
+    // Find length of second string
+    for(i = 0; str2[i] != '\0'; i++)
     {
-        printf("%d ", arr[i]);
+        len2++;
     }
 
-    free(arr);
+    if(len1 > len2)
+    {
+        printf("Larger string = %s", str1);
+    }
+    else if(len2 > len1)
+    {
+        printf("Larger string = %s", str2);
+    }
+    else
+    {
+        printf("Both strings are of same length");
+    }
 
     return 0;
 }

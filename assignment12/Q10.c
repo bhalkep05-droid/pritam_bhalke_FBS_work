@@ -1,44 +1,37 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
-    int n, i, j, temp;
-    int *arr;
+    char str[100];
+    int i, len = 0, flag = 1;
 
-    printf("Enter size of array: ");
-    scanf("%d", &n);
+    printf("Enter a string: ");
+    scanf("%s", str);
 
-    arr = (int *)malloc(n * sizeof(int));
-
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++)
+    // Find length of string
+    for(i = 0; str[i] != '\0'; i++)
     {
-        scanf("%d", &arr[i]);
+        len++;
     }
 
-    // Sorting in ascending order
-    for(i = 0; i < n - 1; i++)
+    // Check palindrome
+    for(i = 0; i < len / 2; i++)
     {
-        for(j = i + 1; j < n; j++)
+        if(str[i] != str[len - i - 1])
         {
-            if(arr[i] > arr[j])
-            {
-                temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
+            flag = 0;
+            break;
         }
     }
 
-    printf("Sorted array is:\n");
-
-    for(i = 0; i < n; i++)
+    if(flag == 1)
     {
-        printf("%d ", arr[i]);
+        printf("String is Palindrome");
     }
-
-    free(arr);
+    else
+    {
+        printf("String is not Palindrome");
+    }
 
     return 0;
 }
