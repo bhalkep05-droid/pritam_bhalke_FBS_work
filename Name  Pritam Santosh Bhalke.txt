@@ -1,0 +1,44 @@
+Name : Pritam Santosh Bhalke
+FRN NO:16J0726/012
+Set: Set B
+
+1. Write a program to count number of words in a string.
+
+#include <stdio.h>
+int main()
+{
+	char str[100];
+	int i, count=0;
+	printf("Enter a string:" );
+	fgets(str,sizeof(str),stdin);
+	for(i=0,str[i]!='\0';i++)
+	{
+		if (str[i]=='' && str[i+1]!='')
+		count++;
+		printf("number of words=%d",count);
+		return 0;
+		
+	}
+}
+
+
+
+
+2. Write a program to print following series:
+1 + 11+ 111+ 1111+ ….. + n times 1 
+
+
+int main()
+{
+	int n,i;
+	long long term=0,sum=0;
+	printf("Enter n:");
+	scanf("%d",&n);
+	for(i=1;i<=n;i++)
+	{
+		term= (term*10+1);
+        sum=sum*term;
+	}	
+  if("sum=%lld",sum);
+  return 0;
+}
